@@ -16,7 +16,7 @@ Clicking a question instantly scrolls ChatGPT to that part of the conversation.
 
 ---
 
-## 🔧 Installation (Development Mode)
+## Installation (Development Mode)
 
 1. Clone or download the project.
 2. Open **chrome://extensions** in Chrome.
