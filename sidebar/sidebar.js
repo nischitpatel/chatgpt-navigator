@@ -47,12 +47,11 @@ function renderQuestions(filter = "") {
         div.appendChild(inner);
 
         div.onclick = () => {
-            const msg = document.querySelector(`[data-nav-id="${q.questionId}"]`);
-            if (msg) {
-                msg.scrollIntoView({ behavior: "smooth", block: "center" });
-                msg.style.boxShadow = "0 0 10px 3px gold";
-                setTimeout(() => (msg.style.boxShadow = ""), 1500);
-            }
+            // send message to parent to scroll
+            window.parent.postMessage(
+                { type: "scroll-to", id: q.id },
+                "*"
+            );
         };
 
         list.appendChild(div);
