@@ -1,24 +1,21 @@
 {
   "manifest_version": 3,
-  "name": "ChatGPT Questions Navigator",
-  "version": "0.1.0",
-  "description": "Shows your questions in a sidebar and jumps to the assistant response when clicked.",
+  "name": "ChatGPT Navigator",
+  "version": "1.0",
+  "description": "Sidebar for capturing and navigating ChatGPT questions.",
   "permissions": ["storage"],
+  "host_permissions": ["https://chatgpt.com/*", "https://*.openai.com/*"],
   "content_scripts": [
     {
-      "matches": [
-        "https://chat.openai.com/*",
-        "https://chatgpt.com/*"
-      ],
+      "matches": ["https://chatgpt.com/*", "https://*.openai.com/*"],
       "js": ["content_script.js"],
-      "css": ["sidebar.css"],
-      "run_at": "document_end"
+      "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["sidebar.html", "sidebar.js", "sidebar.css", "icons/*"],
-      "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*"]
+      "resources": ["sidebar/sidebar.html", "sidebar/sidebar.js", "sidebar/sidebar.css"],
+      "matches": ["<all_urls>"]
     }
   ]
 }
